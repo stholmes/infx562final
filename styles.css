@@ -1,0 +1,57 @@
+h1{
+    margin-left:100px;
+    font-family:'Times New Roman', Times, serif;
+    font-size:40px;
+}
+
+img{
+    position: absolute;
+    margin-top:80px;
+    margin-left:50px;
+    margin-left: 80px;
+    image-rendering: auto;
+}
+
+button{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    border-radius:12px;
+    font-size:15px;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:200;
+    color:white;
+    background-color: grey;
+    text-align:center;
+    transition: all 0.2s;
+    margin-left:100px;
+}
+button:hover{
+    background-color:black;
+}
+
+footer{
+    margin-top: 500px;
+    margin-left:100px;
+    color:grey;
+}
+
+.tooltip {
+    position:relative;
+    display:inline-block;
+}
+.tooltip .tooltiptext {
+    margin-top: 210px;
+    margin-left: 160px;
+    visibility: hidden;
+    width: 200px;
+    background-color: grey;
+    color: #fff;
+    text-align: left;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
