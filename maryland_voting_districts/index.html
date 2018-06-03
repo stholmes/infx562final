@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maryland Congressional District Three</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="app.js"></script>
+   
+</head>
+<body>
+    <h1>The Evolution of Maryland's 3rd congressional district</h1>
+    <div class='menu'>    
+        <button class="start">Start</button>
+        <button class="reset">Reset</button>
+        <text>View by session number:</text>
+        <select name="session_num" id='select'>
+            <option value = "0">1st-2nd</option>
+            <option value = "1">3rd-7th</option>
+            <option value = "2">8th-22nd</option>
+            <option value = "3">23rd</option>
+            <option value = "4">24th-27th</option>
+            <option value = "5">28th</option>
+            <option value = "6">29th-32nd</option>
+            <option value = "7">33rd-37th</option>
+            <option value = "8">38th-42nd</option>
+            <option value = "9">43rd-51st</option>
+            <option value = "10">52nd-54th</option>
+            <option value = "11">55th</option>
+            <option value = "12">56th-57th</option>
+            <option value = "13">58th-67th</option>
+            <option value = "14">68th-79th</option>
+            <option value = "15">80th-82nd</option>
+            <option value = "16">83rd-87th</option>
+            <option value = "17">88th-89th</option>
+            <option value = "18">90th-92nd</option>
+            <option value = "19">93rd-97th</option>
+            <option value = "20">98th-102nd</option>
+            <option value = "21">103rd-107th</option>
+            <option value = "22" selected>108th-112th</option>
+        </select>
+        <input type='checkbox' name='citytoggle' id="citytoggle" value='1' checked>
+        <label for='citytoggle'>Cities Markers On</label>
+        
+    </div> 
+
+    <div id="chart" margin-left=100></div>
+    <div id="facts">
+    </div>
+    <div id="infopane"></div>
+    
+  
+</body>
+</html>

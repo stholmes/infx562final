@@ -1,0 +1,70 @@
+h1 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+div.menu {
+    position: absolute;
+    z-index: 10;
+}
+div.facts{
+    position: absolute;
+    z-index: 5;
+}
+div#chart{
+    z-index: 1;
+}
+.district3{
+    position: relative;
+    
+}
+div#infopane{
+    position: relative;
+    bottom: 200px;
+    font-family: sans-serif;
+    width: 30px;
+}
+.clicked{
+    fill: '#5FFFF3';
+}
+circle{
+    position: absolute;
+    z-index:5;
+}
+div#facts {
+    position: relative;
+    bottom:225px;
+    left:650px;
+    width: 200px;
+    z-index:20;
+}
+
+#infopane{
+    position: relative;
+    bottom: 200px;
+    
+}
+text.sessions {
+    font-size: 17px;
+    font-family: sans-serif;
+}
+body {
+    background-color: whitesmoke
+}
+
+.selected {
+    fill: 'white'
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gerrymandering Explorable Explanation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+  
+</head>
+<style>
+html,body,h1,h2,h3,h4,h5,h6,text {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+img.related#selected{
+  opacity:.15;
+}
+img.related:hover{
+  opacity: .15;
+}
+
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top" style="position:fixed;z-index:5">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Home</a>
+    <a href="#gerrymandering" target="_self" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Gerrymadering</a>
+    <a href="#related" target="_self" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Related Visualizations</a>
+    <a href="#measuring" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Compactness</a>
+    <a href="#maryland" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Maryland's 3rd District</a>
+    <a href="#solution" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Solution</a>
+    <a href="#references" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">References</a>
+    
+  </div>
+</div>
+
+
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+    <div class="w3-row w3-padding-64">
+        <h1 class="w3-text-teal" style="font-size: 50px;position:relative; top:100px">Gerrymandering</h1>
+            <h3 style="margin-left:150px; position:relative;top:75px">an Explorable Explaination</h3>
+            <h5 class="w3-twothird w3-container" style="position:relative; margin-left:150px; top:250px" >by Sneha Kamath &amp; Stephen Holmes</h5>
+            <img class="w3-twothird w3-container"  src="images/tisdale.png" alt="The Gerry Mander" style="opacity:.1;position: relative;bottom:300px;margin-bottom:5px" >
+            
+            <div class="w3-third w3-container" style="position:relative; bottom:200px; left: 100px">INFX 562 Final</div>      
+            <div class="w3-row">    
+  
+        <div class="w3-twothird w3-container" id='gerrymandering'>
+      <h1 class="w3-text-teal" style="margin-top:40px" >Gerrymandering</h1>
+      <p>Gerrymandering, in U.S. politics, is drawing the boundaries of electoral districts in a way that gives one party an unfair advantage over its rivals.</p>
+       <p> Gerrymandering creates an imbalance of elected representatives.</p>
+      <p>The term was named after Governor Elbridge Gerry of Massachusetts, whose administration enacted a law in 1812 defining new state senatorial districts.</p>
+        What is the current state of gerrymandering?
+        </p> 
+    </div>
+  </div>
+    <div class="w3-twothird w3-container" id="compactness">   </div>
+
+  <div class="w3-row">
+    
+    <!--This section is for related visualizations-->
+    <div class="w3-twothird w3-container" id='related'>
+      <h1 class="w3-text-teal" style="margin-top:40px"><a name="related">Related Visualizations</a></h1>
+      <p>Visual representation of gerrymandering has a rich history of political cartoons.  The term is synonymous with Elkanah Tisdale’s cartoon depicting a voting district as a monster.  The term is a portmanteau of Gerry for Governor Gerry and Salamander.  Cartoons often use similar visual encodings as more informative visualiations, such as political party mapped to color or the use of actual district shapes to express the author's distain for the process.  
+        </p>
+      <p>Choropleth maps show district boundaries and present alternative plans for redistricting. This <a href="https://projects.fivethirtyeight.com/redistricting-maps/" target="blank">interactive map</a> from fivethirtyeight.com allows the user to explore different redistricting scenarios.</p>
+    </div>
+    <!--This section is for related visualization side bar-->
+    <div class="w3-twothird w3-container" id="relatedsidebar">
+        <img class="related" style="opacity:.15" id='selected'src="images/tisdale.png" alt="The Gerry Mander" width=150 height=100 >
+        <img class='related' src="images/gerrymandering.jpg" alt="Choropleth Maps from fivethrityeight.com" width=150 height=100 >
+        <img class='related' src="images/gerrymandering-9.jpg" alt="Choropleth Maps from fivethrityeight.com" width=150 height=100 >
+        <img class='related' src="images/steal_election.png" alt="Choropleth Maps from fivethrityeight.com" width=150 height=100 >
+      
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container" id="measuring">
+      <h1 class="w3-text-teal" style="margin-top:40px">Measuring Gerrymanders</h1>
+      <div class="measure" style="border: 3px solid black"></div>
+      <div style='margin-top:10px'>
+        <button class="btnreplay" style="opacity:.5;pointer-events: none">Last Slide</button>
+        <button class="btnnext">Next Slide</button>
+        <div><p>Coast lines, geography, and unusual shaped boundaries affect compactness.  There are over 30 different methods to measure districts. Average compactness scores by state using four different models are displayed in the line chart below.</p></div>
+        </div>
+        <div style=' margin-bottom: 15px' class="compact_state">
+        </div>
+    <div class='box'><p>Maryland has the lowest compactness scores in three out of the four methods.</p></div>
+    <div style='margin-top:55px' class="measurebtn">
+        <button class="reock" style="opacity:.5;pointer-events: none">Reock</button>
+        <button class="polsby">Polsby</button>
+        <button class="schwartzberg">Schwartzberg</button>
+        <button class="convex">Convex</button>
+        <text style="margin-left:25px">View by:</text>
+        <input type="radio"  name="x_axis" value="count" checked>District Count
+        <input type="radio" name="x_axis" value="bystate">By State</br>
+      </div>
+    
+    </div>
+    <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container"id="maryland" >
+    <div class="maryland" style="margin-top:20px">
+        <h1 class="w3-text-teal" style="margin-top:40px">The Evolution of Maryland's 3rd congressional district</h1>
+        <p>Maryland's 3rd district is considered one of the most gerrymandered districts in the country.  Over the years, the district's shape has evolved to the usual shape it is today.</p>
+        <div class='menu'>    
+            <button class="start">Start</button>
+            <text style="margin-left:15px">View by session number:</text>
+            <select name="session_num" id='select' style="position:relative; z-index:2">
+                <option value = "0">1st-2nd</option>
+                <option value = "1">3rd-7th</option>
+                <option value = "2">8th-22nd</option>
+                <option value = "3">23rd</option>
+                <option value = "4">24th-27th</option>
+                <option value = "5">28th</option>
+                <option value = "6">29th-32nd</option>
+                <option value = "7">33rd-37th</option>
+                <option value = "8">38th-42nd</option>
+                <option value = "9">43rd-51st</option>
+                <option value = "10">52nd-54th</option>
+                <option value = "11">55th</option>
+                <option value = "12">56th-57th</option>
+                <option value = "13">58th-67th</option>
+                <option value = "14">68th-79th</option>
+                <option value = "15">80th-82nd</option>
+                <option value = "16">83rd-87th</option>
+                <option value = "17">88th-89th</option>
+                <option value = "18">90th-92nd</option>
+                <option value = "19">93rd-97th</option>
+                <option value = "20">98th-102nd</option>
+                <option value = "21">103rd-107th</option>
+                <option value = "22" selected>108th-112th</option>
+            </select>
+            <input style="margin-left:30px" type='checkbox' name='citytoggle' id="citytoggle" value='1' checked>
+            <label for='citytoggle'>Cities Markers On</label>
+            
+        </div> 
+        </div>
+
+
+        
+        <div id="solution" ></div>
+            <h1 class="w3-text-teal" style="margin-top:40px">Solution</h1>
+            <p>District boundaries as per 2010 census data. Maryland being one of the least compacted states has been especially prone to outrageously shaped district boundaries. Click on the button below to view district shapes created by the algorithm.</p>
+            <p>Brian Olson's algorithm redesigns boundaries to create 'optimally compact' district boundaries. His solution relies on census blocks and lowest average distance to the geographic center of each district to ensure compactness in district shapes.</p>
+            <button class="solution">Solution</button>
+            <button class="current" style="opacity:.5">Current</button>
+            <div class="solution"></div>
+            
+            </div>
+          </div>
+        <div id="chart" margin-left=100></div>
+        <div id="facts"></div>
+        <div id="references" ></div>
+            <h1 class="w3-text-teal" style="margin-top:40px">References</h1>
+            <p>Azavea. “Glossary.” Redistricting the Nation - FAQ - Who Draws the Lines, www.redistrictingthenation.com/glossary.aspx#compactness.
+              </p>
+            <p>Britannica, The Editors of Encyclopaedia. “Gerrymandering.” Encyclopædia Britannica, Encyclopædia Britannica, Inc., 5 Nov. 2014, www.britannica.com/topic/gerrymandering.</p>
+            <p>Bycoffe, Aaron, et.al. “The Atlas Of Redistricting.” FiveThirtyEight, 25 Jan. 2018, projects.fivethirtyeight.com/redistricting-maps/.</p>
+              <p>Cagle, Daryl. “Gerrymandering.” Gerrymandering, 27 Mar. 2017, www.cagle.com/daryl-cagle/2017/03/gerrymandering.</p>
+              <p>Ingraham, Christopher. “This Computer Programmer Solved Gerrymandering in His Spare Time.” The Washington Post, WP Company, 3 June 2014, www.washingtonpost.com/news/wonk/wp/2014/06/03/this-computer-programmer-solved-gerrymandering-in-his-spare-time/?utm_term=.d31209b1392d.</p>
+              <p>Margolin, Jamie. “It's Time To Ban Congressional Gerrymandering.” The Huffington Post, TheHuffingtonPost.com, 26 May 2017, www.huffingtonpost.com/entry/congressional-gerrymandering-should-be-banned-in-the_us_59284095e4b0a7b7b469c9c8.</p>
+              <p>McCoy, Glenn. “Gerrymandering Political Cartoons.” low.onvacations.co/gerrymandering-political-cartoons/.</p>
+              <p>Tisdale, Elkanah. “The Gerry-Mander.” Boston Gazette, 1812.</p>
+              <h1 class="w3-text-teal" style="margin-top:40px">Additional Resources Used</h1>
+              <p>“Congressional District Boundaries” -- Geojson files: JeffreyBLewis, https://github.com/JeffreyBLewis/congressional-district-boundaries</p>
+              <p>Compactness data: Azavea, “Redrawing the Map on Redistricting, 2012, addendum”.</p>
+              <p>Template from <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            </div>
+   
+   
+    
+
+    
+  </div>
+  
+
+  
+
+<!-- END MAIN -->
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script src="app_image.js"></script>
+<script src="box.js"></script>
+<script src="test.js"></script>
+
+
+</script>
+
+</body>
+</html>
